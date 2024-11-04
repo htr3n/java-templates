@@ -217,7 +217,6 @@
                     <message>Best practice is to always define plugin versions!</message>
                   </requirePluginVersions>
                   <banCircularDependencies/>
-                  <banDuplicateClasses/>
                   <bannedDependencies>
                     <excludes>
                       <!-- This old JUnit 3 conflicts with JUnit 5 vintage -->

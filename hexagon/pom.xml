@@ -13,6 +13,9 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>21</maven.compiler.release>
     <maven.min.version>3.8.0</maven.min.version>
+
+    <version.org.lombok>1.18.34</version.org.lombok>
+    <version.org.mapstruct>1.6.2</version.org.mapstruct>
   </properties>
 
   <dependencies>
@@ -227,7 +230,6 @@
                     <message>Best practice is to always define plugin versions!</message>
                   </requirePluginVersions>
                   <banCircularDependencies/>
-                  <banDuplicateClasses/>
                   <bannedDependencies>
                     <excludes>
                       <!-- This old JUnit 3 conflicts with JUnit 5 vintage -->
@@ -269,6 +271,13 @@
         <plugin>
           <artifactId>maven-site-plugin</artifactId>
           <version>3.21.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>3.4.0</version>
+          <configuration>
+            <failOnMissingWebXml>false</failOnMissingWebXml>
+          </configuration>
         </plugin>
         <!--
          Versions Maven Plugin

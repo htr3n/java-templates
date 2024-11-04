@@ -13,6 +13,9 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>21</maven.compiler.release>
     <maven.min.version>3.8.0</maven.min.version>
+
+    <version.org.lombok>1.18.34</version.org.lombok>
+    <version.org.mapstruct>1.6.2</version.org.mapstruct>
   </properties>
 
   <dependencies>
