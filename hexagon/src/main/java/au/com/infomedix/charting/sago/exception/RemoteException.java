@@ -9,7 +9,7 @@ import lombok.Getter;
 public class RemoteException extends AbstractException {
   @Serial private static final long serialVersionUID = 2631783166802391833L;
 
-  private int code = -1;
+  @Builder.Default private int code = -1;
 
   public RemoteException() {}
 

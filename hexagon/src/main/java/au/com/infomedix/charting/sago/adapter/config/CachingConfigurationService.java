@@ -13,7 +13,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.hibernate.annotations.QueryHints;
+import org.hibernate.jpa.AvailableHints;
 
 @Slf4j
 @Stateless
@@ -26,7 +26,10 @@ public class CachingConfigurationService implements ConfigurationService {
     if (StringUtils.isNotBlank(name)) {
       final String sql = "SELECT CONCAT(value, '') FROM " + TABLE_NAME + " WHERE name=:name";
       final Query query = this.entityManager.createNativeQuery(sql);
-      query.setParameter("name", name).setHint(QueryHints.READ_ONLY, true).setMaxResults(1);
+      query
+          .setParameter("name", name)
+          .setHint(AvailableHints.HINT_READ_ONLY, true)
+          .setMaxResults(1);
       try {
         final Object result = query.getSingleResult();
         if (result != null) {
@@ -51,7 +54,7 @@ public class CachingConfigurationService implements ConfigurationService {
     final List<Object[]> list =
         this.entityManager
             .createNativeQuery(sql)
-            .setHint(QueryHints.READ_ONLY, true)
+            .setHint(AvailableHints.HINT_READ_ONLY, true)
             .getResultList();
 
     if (list != null && !list.isEmpty()) {
